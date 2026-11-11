@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>재봉틀을 활용한 에코백 만들기 및 전시회</title>
+  <style>
+    :root {
+      --bg: #f6f1e7;        /* 생지(캔버스 원단) 색 */
+      --card: #fffdf8;
+      --ink: #2f3a33;
+      --sub: #6b7268;
+      --accent: #2f6b4f;    /* 초록 실 */
+      --accent-dark: #24543e;
+      --stitch: #c9b99a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+                   "Pretendard", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      background-color: var(--bg);
+      /* 원단 결 느낌의 잔잔한 패턴 */
+      background-image:
+        repeating-linear-gradient(0deg, rgba(0,0,0,.025) 0 1px, transparent 1px 4px),
+        repeating-linear-gradient(90deg, rgba(0,0,0,.025) 0 1px, transparent 1px 4px);
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 440px;
+      background: var(--card);
+      border-radius: 20px;
+      padding: 44px 28px 36px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(60, 50, 30, .12);
+    }
+
+    /* 바느질 점선 테두리 */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 2px dashed var(--stitch);
+      border-radius: 14px;
+      pointer-events: none;
+    }
+
+    .icon {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 22px;
+    }
+
+    h1 {
+      font-size: clamp(1.4rem, 6vw, 1.85rem);
+      line-height: 1.35;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      word-break: keep-all;
+    }
+
+    h1 .line2 {
+      display: block;
+      color: var(--accent);
+    }
+
+    p.desc {
+      margin-top: 14px;
+      font-size: clamp(0.95rem, 4vw, 1.05rem);
+      line-height: 1.6;
+      color: var(--sub);
+      word-break: keep-all;
+    }
+
+    .start-btn {
+      margin-top: 32px;
+      width: 100%;
+      min-height: 54px;          /* 손가락으로 누르기 쉬운 크기 */
+      border: none;
+      border-radius: 14px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      box-shadow: 0 4px 0 var(--accent-dark);
+      transition: transform .08s ease, box-shadow .08s ease, background .2s;
+      -webkit-tap-highlight-color: transparent;
+      position: relative;
+      z-index: 1;
+    }
+
+    .start-btn:hover { background: #357a5a; }
+
+    .start-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 var(--accent-dark);
+    }
+
+    .start-btn:focus-visible {
+      outline: 3px solid #e0b84c;
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <!-- 에코백 아이콘 (SVG) -->
+    <svg class="icon" viewBox="0 0 100 100" aria-hidden="true">
+      <path d="M34 34 C34 14, 66 14, 66 34" fill="none" stroke="#2f6b4f" stroke-width="5" stroke-linecap="round"/>
+      <rect x="18" y="32" width="64" height="58" rx="8" fill="#e9dcc2" stroke="#2f6b4f" stroke-width="4"/>
+      <rect x="25" y="39" width="50" height="44" rx="5" fill="none" stroke="#2f6b4f" stroke-width="2" stroke-dasharray="4 4"/>
+      <path d="M50 52 C44 46, 36 52, 42 60 L50 68 L58 60 C64 52, 56 46, 50 52 Z" fill="#2f6b4f"/>
+    </svg>
+
+    <h1>
+      재봉틀을 활용한
+      <span class="line2">에코백 만들기 및 전시회</span>
+    </h1>
+
+    <p class="desc">한 땀 한 땀 직접 만든 나만의 에코백을 소개하고 함께 감상해요.</p>
+
+    <button type="button" class="start-btn" id="startBtn">시작</button>
+  </main>
+
+  <script>
+    document.getElementById('startBtn').addEventListener('click', function () {
+      alert('준비 중입니다. 조금만 기다려 주세요!');
+    });
+  </script>
+</body>
+</html>
